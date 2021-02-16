@@ -6,5 +6,9 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
+<<<<<<< HEAD
   
+=======
+  title = "Jesus Children Missions Outreach";
+>>>>>>> b6a467f2e3dfd84a99ffb8c9cc022b438cdc82cb
 }
