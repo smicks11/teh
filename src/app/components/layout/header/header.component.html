@@ -1,34 +1,35 @@
-<header
-  id="header"
-  class="fixed-top d-flex align-items-center header-transparent"
-  style="height: 80px; transition: all 0.5s; z-index: 997; transition: all 0.5s"
->
-  <div class="container d-flex align-items-center">
-    <div class="logo mr-auto">
-      <h1 class="text-light">
-        <a href=""
-          ><span style="font-size: 1.2rem"
-            >Jesus Children Missions Outreach</span
-          ></a
-        >
-      </h1>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="logo">
+      <h1 class="text-light"><a class="" href=""><span style="font-size: 1.2rem;">JCMOUTREACH</span></a></h1>
     </div>
-
-    <nav class="nav-menu d-none d-lg-block">
-      <ul>
-        <li class="active"><a href="">Home</a></li>
-        <li class="drop-down">
-          <a href="">About Us</a>
+  
+    <button class="navbar-toggler" type="button"
+      (click)="toggleNavbar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+  <div class="collapse navbar-collapse"></div>
+  <div class="collapse navbar-collapse"></div>
+  <div class="collapse navbar-collapse"></div>
+  <div class="collapse navbar-collapse"></div>
+    <div class="collapse navbar-collapse nav-menu show"
+      [ngClass]="{ 'show': navbarOpen }">
+      <ul class="navbar-nav">
+        <li class="active"><a routerLink="/">Home</a></li>
+        <li class="drop-down"><a>About Us</a>
           <ul>
-            <li><a href="#">About Jesus Children Missions</a></li>
-            <li><a href="#">TenderLift Junior Grade</a></li>
-            <li><a href="#">Volunteer Opportunities</a></li>
-            <li><a href="#">Frequently asked Questions</a></li>
+            <li ><a routerLink="/about">About Jesus Children Missions</a></li>
+            <li><a routerLink="/tenderlift">TenderLift Junior Grade</a></li>
+            <li><a routerLink="/volunteer">Volunteer Opportunities</a></li>
+            <li><a routerLink="/faq">Frequently asked Questions</a></li>
           </ul>
         </li>
-        <li><a href="">Support</a></li>
-        <li><a href="">Contact Us</a></li>
+        <li><a routerLink="/support">Support</a></li>
+        <li><a routerLink="/contact">Contact Us</a></li>
       </ul>
-    </nav>
-  </div>
-</header>
+    </div>
+  </nav>
+
+    
+
+ 

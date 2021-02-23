@@ -16,6 +16,19 @@ import { ContactSectionComponent } from './components/layout/contact-section/con
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { PreLoaderComponent } from './components/layout/pre-loader/pre-loader.component';
 import { BackToTopComponent } from './components/layout/back-to-top/back-to-top.component';
+import { AboutComponent } from './components/pages/about/about.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { BreadcrumbComponent } from './components/layout/breadcrumb/breadcrumb.component';
+import { AboutInnerContentComponent } from './components/layout/about-inner-content/about-inner-content.component';
+import { TenderLiftComponent } from './components/pages/tender-lift/tender-lift.component';
+import { TenderLiftContentComponent } from './components/layout/tender-lift-content/tender-lift-content.component';
+import { VolunteerComponent } from './components/pages/volunteer/volunteer.component';
+import { VolunteerContentComponent } from './components/layout/volunteer-content/volunteer-content.component';
+
+import { ContactComponent } from './components/pages/contact/contact.component';
+import { FaqComponent } from './components/pages/faq/faq.component';
+import { SupportLayoutComponent } from './components/pages/support-layout/support-layout.component';
+import { SupportContentComponent } from './components/layout/support-content/support-content.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +45,19 @@ import { BackToTopComponent } from './components/layout/back-to-top/back-to-top.
     ContactSectionComponent,
     FooterComponent,
     PreLoaderComponent,
-    BackToTopComponent
+    BackToTopComponent,
+    AboutComponent,
+    HomeComponent,
+    BreadcrumbComponent,
+    AboutInnerContentComponent,
+    TenderLiftComponent,
+    TenderLiftContentComponent,
+    VolunteerComponent,
+    VolunteerContentComponent,
+    ContactComponent,
+    FaqComponent,
+    SupportLayoutComponent,
+    SupportContentComponent
   ],
   imports: [
     BrowserModule,
