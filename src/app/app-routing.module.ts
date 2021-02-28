@@ -1,26 +1,29 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/pages/home/home.component';
-import { AboutComponent } from './components/pages/about/about.component';
-import { TenderLiftComponent } from './components/pages/tender-lift/tender-lift.component';
-import { VolunteerComponent } from './components/pages/volunteer/volunteer.component';
-import { SupportLayoutComponent } from './components/pages/support-layout/support-layout.component';
-import { ContactComponent } from './components/pages/contact/contact.component';
-import { FaqComponent } from './components/pages/faq/faq.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule, PreloadAllModules } from "@angular/router";
+import { AppRoutes } from "./core";
+import { LayoutComponent } from "./layout";
+import { APP_ROUTES } from "./shared";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'about', component: AboutComponent},
-  {path: 'tenderlift', component: TenderLiftComponent},
-  {path: 'volunteer', component: VolunteerComponent},
-  {path: 'support', component: SupportLayoutComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: 'faq', component: FaqComponent},
-  
+  {
+    path: AppRoutes.home,
+    component: LayoutComponent,
+    children: APP_ROUTES,
+  },
+  { path: "**", redirectTo: AppRoutes.home },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      useHash: false,
+      enableTracing: false,
+      scrollPositionRestoration: "enabled",
+      onSameUrlNavigation: "reload",
+      preloadingStrategy: PreloadAllModules,
+      relativeLinkResolution: "legacy",
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
