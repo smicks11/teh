@@ -9,6 +9,9 @@ const routes: Routes = [
       {
         path: "",
         component: TenderLiftComponent,
+        data: {
+          title: 'TenderLift'
+        }
       },
     ],
   },

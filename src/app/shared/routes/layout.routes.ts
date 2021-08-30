@@ -4,8 +4,19 @@ import { AppRoutes } from "@app/core";
 export const APP_ROUTES: Routes = [
   {
     path: AppRoutes.home,
+    // data: { title: 'Home Title' },
     loadChildren: () =>
       import("../../modules/home/home.module").then((m) => m.HomeModule),
+  },
+  {
+    path: AppRoutes.outreachprograms,
+    loadChildren: () =>
+      import("../../modules/outreach/outreach-programs.module").then((m) => m.OutreachProgramsModule),
+  },
+  {
+    path: AppRoutes.children,
+    loadChildren: () =>
+      import("../../modules/children/children.module").then((m) => m.ChildrenModule),
   },
   {
     path: AppRoutes.about,

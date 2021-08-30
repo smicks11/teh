@@ -35,7 +35,7 @@ section {
   .section-title p {
     margin: 0;
     margin: 0;
-    font-size: 36px;
+    font-size: 26px;
     font-weight: 700;
     text-transform: uppercase;
     font-family: "Poppins", sans-serif;
@@ -95,6 +95,9 @@ section {
   }
   
   .faq .faq-list .icon-show {
+    display: inline-block;
+  }
+  .faq .faq-list .icon-close {
     display: none;
   }
   
@@ -107,11 +110,11 @@ section {
   }
   
   .faq .faq-list a.collapsed .icon-show {
-    display: inline-block;
+    display: none;
   }
   
   .faq .faq-list a.collapsed .icon-close {
-    display: none;
+    display: inline-block;
   }
   
   @media (max-width: 1200px) {

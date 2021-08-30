@@ -106,8 +106,8 @@ section {
 }
 
 .about .video-box {
-  /* background: url("../img/supreme_logo.jpg") center center no-repeat; */
-  background-size: contain;
+  background: url("../../../../assets/images/girl_2.png") center center no-repeat;
+  /* background-size: contain; */
   min-height: 300px;
 }
 

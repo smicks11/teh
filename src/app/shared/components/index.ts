@@ -13,3 +13,6 @@ export * from "./team-section/team-section.component";
 export * from "./tender-lift-content/tender-lift-content.component";
 export * from "./testimonial-section/testimonial-section.component";
 export * from "./volunteer-content/volunteer-content.component";
+export * from "./outreach-programs/outreach-programs-content.component";
+export * from "./children/children.component";
+

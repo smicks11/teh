@@ -6,4 +6,6 @@ export const AppRoutes = {
   support: `support`,
   contact: `contact`,
   faq: `faq`,
+  outreachprograms: `outreachprograms`,
+  children: `children`
 };

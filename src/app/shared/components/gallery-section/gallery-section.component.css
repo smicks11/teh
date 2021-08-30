@@ -35,7 +35,7 @@ section {
   .section-title p {
     margin: 0;
     margin: 0;
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 700;
     text-transform: uppercase;
     font-family: "Poppins", sans-serif;
@@ -43,9 +43,18 @@ section {
   }
 
 .gallery .gallery-item {
+    position: relative;
     overflow: hidden;
     border-right: 3px solid #fff;
     border-bottom: 3px solid #fff;
+  }
+.gallery .gallery-item h2 {
+    position: absolute;
+    bottom: 100px;
+    /* left: 100px; */
+    width: 100%;
+    font-size: 16px;
+    color: white;
   }
   
   .gallery .gallery-item img {
@@ -55,3 +64,23 @@ section {
   .gallery .gallery-item:hover img {
     transform: scale(1.1);
   }
+
+
+  .hidden-img{
+    /* visibility: hidden; */
+    display: none;
+  }
+
+  .transparent:before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.transparent:hover{
+  opacity: 0.7;
+}

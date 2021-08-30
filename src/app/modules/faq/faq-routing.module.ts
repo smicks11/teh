@@ -9,6 +9,9 @@ const routes: Routes = [
       {
         path: "",
         component: FaqComponent,
+        data: {
+          title: 'FAQ'
+        }
       },
     ],
   },

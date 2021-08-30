@@ -9,6 +9,9 @@ const routes: Routes = [
       {
         path: "",
         component: SupportComponent,
+        data: {
+          title: 'Support'
+        }
       },
     ],
   },

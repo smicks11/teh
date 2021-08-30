@@ -1,7 +1,10 @@
 import { ModuleWithProviders, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
+import { FormsModule } from '@angular/forms';
 import {
   AboutInnerContentComponent,
+  OutreachProgramsComponent,
   AboutSectionComponent,
   BreadcrumbComponent,
   CarouselComponent,
@@ -16,7 +19,9 @@ import {
   TenderLiftContentComponent,
   TestimonialSectionComponent,
   VolunteerContentComponent,
+  ChildrenComponent,
 } from "./components";
+
 
 @NgModule({
   declarations: [
@@ -35,8 +40,10 @@ import {
     TenderLiftContentComponent,
     TestimonialSectionComponent,
     VolunteerContentComponent,
+    OutreachProgramsComponent,
+    ChildrenComponent
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, FormsModule,],
   exports: [
     AboutInnerContentComponent,
     AboutSectionComponent,
@@ -53,6 +60,8 @@ import {
     TenderLiftContentComponent,
     TestimonialSectionComponent,
     VolunteerContentComponent,
+    OutreachProgramsComponent,
+    ChildrenComponent
   ],
 })
 export class SharedModule {

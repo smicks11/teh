@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./team-section.component.css']
 })
 export class TeamSectionComponent implements OnInit {
+  isHover : boolean = false;
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() : void{}
 
-  ngOnInit() {
+  onHover() {
+    this.isHover = true;
   }
+
+  // click( {target} )
+  // {
+  //   // target = document.getElementsByClassName('switch');
+  //   target.style = "transform: rotateY(360deg)";
+  //   // = "{transform: rotateY(180deg)}";
+  //   console.log("turned");
+  // }
 
 }
