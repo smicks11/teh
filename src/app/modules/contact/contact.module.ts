@@ -7,10 +7,12 @@ import { ContactComponent } from "./pages/contact/contact.component";
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map } from "rxjs/operators";
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ContactComponent],
-  imports: [SharedModule, ContactRoutingModule],
+  imports: [SharedModule, ContactRoutingModule, ReactiveFormsModule, FormsModule],
 })
 export class ContactModule {
   constructor (private router: Router, private activatedRoute:    ActivatedRoute, private titleService: Title) {

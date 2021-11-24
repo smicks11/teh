@@ -49,29 +49,42 @@ section {
   #mainCard{
     width: 300px;
     height: 300px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     position: relative;
     transition: transform 0.6s;
     transform-style: preserve-3d;
+    margin-bottom: 80px;
   }
   
   .team .member, .team .content {
     text-align: center;
-    /* margin-bottom: 80px; */
-    /* position: relative; */
     position: absolute;
     backface-visibility: hidden;
   }
   .team .content{
-    width: 240px;
-    height: 320px;
-    margin: 0 auto !important;
+    height: 100%;
+    /* width: 240px; */
+    /* margin: 0 auto !important; */
     background: rgba(255, 255, 255, 0.9);
     padding: 15px 0;
     border-radius: 0 0 4px 4px;
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-    transform: rotateY(180deg);
+    /* transform: rotateY(180deg); */
     overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+  }
+
+  .content::-webkit-scrollbar {
+    width: .2em;
+  }
+  
+  .content::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  }
+   
+  .content::-webkit-scrollbar-thumb {
+    background-color: #01036f;
   }
 
   .team .content p{
@@ -79,7 +92,7 @@ section {
     display: block;
     font-size: 14px;
     color: #01036f;
-    padding: 0.075rem;
+    padding: 1rem;
   }
   /* #mainCard:hover {
     transform: rotateY(180deg);
@@ -157,11 +170,11 @@ section {
   .btn-get-started {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 8px;
     letter-spacing: 1px;
     display: inline-block;
-    padding: 5px 10px;
-    border-radius: 50px;
+    padding: 5px 5px;
+    /* border-radius: 50px; */
     transition: 0.5s;
     color: #fff;
     background: #010483;

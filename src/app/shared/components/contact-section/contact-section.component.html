@@ -37,14 +37,14 @@
 
         <div class="col-lg-8 mt-5 mt-lg-0 kwes-form" data-aos="fade-left" data-aos-delay="200">
 
-          <form name="myForm" ngNativeValidate #formSubmit = "ngForm" (ngSubmit) = "onClickSubmit(formSubmit)" action="https://kwes.io/api/foreign/forms/WvQhNyjkl7rib1qKcaZ5" method="POST" role="form" class="">
-            <div class="row mb-2 text-center"  *ngIf="showMsg">
+          <form [formGroup]="myForm">
+            <!-- <div class="row mb-2 text-center"  *ngIf="showMsg">
               <div class="col-xs-12">
                 <p class="alert alert-success">
                     <strong>Thanks for reaching out! We would get back to you shortly.</strong>
                 </p>
               </div>
-            </div>
+            </div> -->
             <div class="form-row">
               <div class="col-md-6 form-group">
                 <input class="form-control"
@@ -52,10 +52,11 @@
                        type="text"
                        placeholder="Name"
                        required
-                       (ngModel)="name"
-                       name="name"
-                       #nameVar="ngModel"
+                       formControlName="name"
                 />
+                <div *ngIf="name.invalid && (name.dirty || name.touched)">
+                  <p style="font-size: 12px; color: red;">Please provide a name.</p>
+                </div>
               
                
               </div>
@@ -66,23 +67,13 @@
                        type="text"
                        placeholder="Email"
                        required
-                       (ngModel)="email"
-                       name="email"
-                       #emailVar="ngModel"
+                       formControlName="email"
                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
                 />
+                <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                  <p style="font-size: 12px; color: red;">Please provide a valid email address.</p>
+                </div>
               </div>
-              
-              <!-- <div class="col-md-6 form-group">
-                          <input class="form-control" type="email" required id="emailId" name="email" (ngModel)="email" required placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-                  ngModel #emailref="ngModel"
-                  [ngClass]="{'is-invalid': (  emailref.touched || emailref.dirty) && !emailref.valid }" />
-                  <span class="invalid-feedback">
-                    <span *ngIf="emailref.errors?.required">
-                      Your Email is required.
-                    </span>
-                  </span>
-              </div> -->
             </div>
             <div class="form-group">
               <input class="form-control"
@@ -90,15 +81,11 @@
               type="text"
               placeholder="Subject"
               required
-              (ngModel)="subject"
-              name="subject"
-              #subjectVar="ngModel"
+              formControlName="subject"
              />
-       <!-- <span class="invalid-feedback">
-         <span *ngIf="subjectVar.errors?.required">
-           A Subject is required.
-         </span>
-       </span> -->
+             <div *ngIf="subject.invalid && (subject.dirty || subject.touched)">
+              <p style="font-size: 12px; color: red;">Please provide a subject.</p>
+            </div>
             </div>
             <div class="form-group">
               <textarea class="form-control"
@@ -107,25 +94,19 @@
               type="text"
               placeholder="Message"
               required
-              (ngModel)="message"
-              name="message"
-              #messageVar="ngModel"
+              formControlName="message"
               ></textarea>
-       <!-- <span class="invalid-feedback">
-         <span *ngIf="messageVar.errors?.required">
-          Please write something for us.
-         </span>
-       </span> -->
+
+              <div *ngIf="message.invalid && (message.dirty || message.touched)">
+                <p style="font-size: 12px; color: red;">Messages must be at least 15 characters long.</p> 
+              </div>
             </div>
             <div class="card mt-3">
               <div class="card-body">
                   <div #recaptcha ></div>
               </div>
           </div>
-            <!-- <div class="text-center"><button type="submit" class="btn-get-started mt-2">Send Message</button></div> -->
-            <div class="text-center mt-2"><input type = "submit" value = "Send Message" ></div>
-            
-           
+            <div class="text-center mt-2"><input type = "submit" (ngClick)="sendMessage()" [disabled]="myForm.invalid" value = "Send Message"></div>
           </form>
           
 

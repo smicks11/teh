@@ -5,6 +5,7 @@ import { AppComponent } from "./app.component";
 import { LayoutModule } from "./layout";
 import { CoreModule } from "./core";
 import { SharedModule } from "./shared";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,8 @@ import { SharedModule } from "./shared";
     CoreModule,
     SharedModule.forRoot(),
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [
     Title
