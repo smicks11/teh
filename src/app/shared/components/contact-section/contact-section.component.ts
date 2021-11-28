@@ -1,66 +1,58 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
- 
+import { Component, ChangeDetectorRef, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { FormBuilder, FormArray, Validators } from "@angular/forms";
+// import { ValidatePassword } from "./must-match/validate-password";
+
 @Component({
-    selector: 'app-contact-section',
-    templateUrl: './contact-section.component.html',
-    styleUrls: ['./contact-section.component.css']
-  })
-export class  ContactSectionComponent implements OnInit {
-  myForm: FormGroup;
- 
+      selector: 'app-contact-section',
+      templateUrl: './contact-section.component.html',
+      styleUrls: ['./contact-section.component.css']
+    })
+
+export class ContactSectionComponent {
+  alert:boolean=false;
+  submitted = false;
+
   @ViewChild('recaptcha', {static: true }) recaptchaElement: ElementRef;
- 
-  constructor(private fb: FormBuilder) { 
-    this.myForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      subject: ['', Validators.required],
-      message: ['', [Validators.required, Validators.minLength(15)]],
-    });
-  }
- 
+  
+  constructor(
+    public fb: FormBuilder,
+    private cd: ChangeDetectorRef
+  ) {}
+
   ngOnInit() {
     this.addRecaptchaScript();
   }
 
-  get name() {
-    return this.myForm.get('name');
-  }
+  /*##################### Registration Form #####################*/
+  contactForm = this.fb.group({
+    name: ['', [Validators.required, Validators.minLength(2)]],
+    email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+    phoneNumber: ['', [Validators.required, Validators.maxLength(15), Validators.pattern('^[0-9]+$')]],
+    subject: ['', [Validators.required, Validators.minLength(2),]],
+    message: ['', [Validators.required, Validators.minLength(2),]],
+  })  
 
-  get email() {
-    return this.myForm.get('email');
-  }
-
-  get subject() {
-    return this.myForm.get('subject');
-  }
-
-  get message() {
-    return this.myForm.get('message');
-  }
   
 
-  sendMessage() {
-    this.validateAllFields();
-    if(this.myForm.invalid){
-      return;
-    }
-
-    console.log('Name', this.name.value);
-    console.log('Email', this.email.value);
-    console.log('Message', this.message.value);
-    console.log('Subject', this.subject.value);
+  // Getter method to access formcontrols
+  get myForm() {
+    return this.contactForm.controls;
   }
 
-  validateAllFields() {         
-    Object.keys(this.myForm.controls).forEach(field => { 
-      debugger; 
-        const control = this.myForm.get(field);  
-        control.markAsTouched({ onlySelf: true });          
-    });
-}
- 
+
+  // Submit Form
+  onSubmit() {
+    this.submitted = true;
+    if(!this.contactForm.valid) {
+      alert('Please fill all the required fields to send a message!')
+      return false;
+    } else {
+      this.alert=true;
+      console.log(this.contactForm.value)
+      this.contactForm.reset({});
+    }
+  }
+
   renderReCaptch() {
     window['grecaptcha'].render(this.recaptchaElement.nativeElement, {
       'sitekey' : '6LePbq4UAAAAAPqwJU8u5g1Of1TIEMyoPpJQpyaD',
@@ -85,39 +77,3 @@ export class  ContactSectionComponent implements OnInit {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-contact-section',
-//   templateUrl: './contact-section.component.html',
-//   styleUrls: ['./contact-section.component.css']
-// })
-
-
-
-
-// export class ContactSectionComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-// }

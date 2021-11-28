@@ -194,3 +194,6 @@ section {
       transform: rotate(360deg);
     }
   }
+  .alert p{
+    font-size: 12 !important;
+  }
